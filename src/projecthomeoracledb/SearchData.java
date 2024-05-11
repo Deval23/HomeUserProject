@@ -189,6 +189,14 @@ public class SearchData implements DBFunctionInterface {
          
      }
      
+     public int searchallkhata(){
+  
+         
+         return 1;
+     }
+     
+     
+     
 
     @Override
     public int insertnewuser(String usid, String Fname, String Lname, String PAN, String Adhar, String Usnumber) {
@@ -217,6 +225,11 @@ public class SearchData implements DBFunctionInterface {
 
     @Override
     public int updateaccdetail(String accno, String ifsc, String bankname, String USID, String Accountholder, String debitcard, String Basebranch, String mic) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int insertkhata(int khatano) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

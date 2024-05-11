@@ -61,12 +61,6 @@ public class Updatedata implements DBFunctionInterface{
         return 1;
     }
     
-    
-    
-    
-    
-    
-    
     @Override
     public int insertnewuser(String usid, String Fname, String Lname, String PAN, String Adhar, String Usnumber) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -94,6 +88,16 @@ public class Updatedata implements DBFunctionInterface{
 
     @Override
     public String searchaccount(String accno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int insertkhata(int khatano) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int searchallkhata() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -63,6 +63,21 @@ import javax.swing.JOptionPane;
         return 1;
     }
     
+    public int insertkhata(int khatano){
+         try{
+            Class.forName("oracle.jdbc.OracleDriver");
+            Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","12345");
+            Statement st=cn.createStatement();
+            String qr="insert into khata values(khatano="+khatano+")";
+            st.executeUpdate(qr);
+            System.out.println("KHATA DETAILS ENTERED");
+            }
+           catch(Exception e){
+            System.out.println("KHATA DETAILS NOT ENTERED "+e.getMessage());
+            }
+        return 1;
+    }
+    
     @Override
     public String searchuser(String X, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -90,6 +105,11 @@ import javax.swing.JOptionPane;
 
     @Override
     public int updateaccdetail(String accno, String ifsc, String bankname, String USID, String Accountholder, String debitcard, String Basebranch, String mic) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int searchallkhata() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -226,19 +226,17 @@ public class STart1 extends javax.swing.JFrame {
                         .addGap(0, 15, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(33, 33, 33)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
+                                .addGap(30, 30, 30)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -248,9 +246,9 @@ public class STart1 extends javax.swing.JFrame {
                                     .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(45, 45, 45))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(97, 97, 97)
                                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(230, 230, 230))))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,6 +349,7 @@ public class STart1 extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        Userdetail ud=new Userdetail();
        ud.show();  // TODO add your handling code here:
@@ -473,47 +472,47 @@ public class STart1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win32V119\\chromedriver-win32\\chromedriver.exe");  
-        WebDriver wb=new ChromeDriver();
-        String pan; 
-         pan=PAN.getText().toString();
-          String adhar; 
-        adhar=ADH.getText().toString();   
-         
-         try {
-    	 wb.navigate().to("https://www.onlineservices.nsdl.com/paam/requestAndDownloadEPAN.html");
-    	 Thread.sleep(300);
-        wb.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/div/div/div/div/div/div/div/div/div/div/div/form/div[2]/div/div/input")).sendKeys(pan);
-    	 Thread.sleep(100);
-         wb.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/div/div/div/div/div/div/div/div/div/div/div/form/div[3]/div/div/input[1]")).sendKeys(adhar);
-    	 Thread.sleep(2000);
-         
-       }
-       catch(Exception e){
-           System.out.println(e.getMessage());
-       }
-                
+//        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win32V119\\chromedriver-win32\\chromedriver.exe");  
+//        WebDriver wb=new ChromeDriver();
+//        String pan; 
+//         pan=PAN.getText().toString();
+//          String adhar; 
+//        adhar=ADH.getText().toString();   
+//         
+//         try {
+//    	 wb.navigate().to("https://www.onlineservices.nsdl.com/paam/requestAndDownloadEPAN.html");
+//    	 Thread.sleep(300);
+//        wb.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/div/div/div/div/div/div/div/div/div/div/div/form/div[2]/div/div/input")).sendKeys(pan);
+//    	 Thread.sleep(100);
+//         wb.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/div/div/div/div/div/div/div/div/div/div/div/form/div[3]/div/div/input[1]")).sendKeys(adhar);
+//    	 Thread.sleep(2000);
+//         
+//       }
+//       catch(Exception e){
+//           System.out.println(e.getMessage());
+//       }
+//                
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win32V119\\chromedriver-win32\\chromedriver.exe");  
-        WebDriver wb=new ChromeDriver();
-        
-          String adhar; 
-        adhar=ADH.getText().toString();  
-         
-         try { 
-    	 wb.navigate().to("https://myaadhaar.uidai.gov.in/genricDownloadAadhaar");
-    	 Thread.sleep(2000);
-        wb.findElement(By.xpath("/html/body/div[1]/div/div[3]/div/div/div[1]/div/form/div[3]/div[1]/div/div/div/input")).sendKeys(adhar);
-    	 Thread.sleep(100);
-         
-         
-       }
-       catch(Exception e){
-           System.out.println(e.getMessage());
-       }
-        
+//        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win32V119\\chromedriver-win32\\chromedriver.exe");  
+//        WebDriver wb=new ChromeDriver();
+//        
+//          String adhar; 
+//        adhar=ADH.getText().toString();  
+//         
+//         try { 
+//    	 wb.navigate().to("https://myaadhaar.uidai.gov.in/genricDownloadAadhaar");
+//    	 Thread.sleep(2000);
+//        wb.findElement(By.xpath("/html/body/div[1]/div/div[3]/div/div/div[1]/div/form/div[3]/div[1]/div/div/div/input")).sendKeys(adhar);
+//    	 Thread.sleep(100);
+//         
+//         
+//       }
+//       catch(Exception e){
+//           System.out.println(e.getMessage());
+//       }
+//        
 
     }//GEN-LAST:event_jButton10ActionPerformed
 public void close(){

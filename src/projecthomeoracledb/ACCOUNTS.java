@@ -283,6 +283,7 @@ public class ACCOUNTS extends javax.swing.JFrame {
      micr.setText(arr[7]);
      debitcard.setText(arr[5]);
      Basebranchaddress.setText(arr[6]);
+     System.out.println("Searched");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void banknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_banknameActionPerformed
@@ -311,7 +312,7 @@ public class ACCOUNTS extends javax.swing.JFrame {
          ar=userdata.split("\\|");
          DBFunctionInterface dbinacc=new Insertdata();
          dbinacc.insertaccdetail(accn, accifsc, accbankname, ar[0], ar[1], debitcard1, basebranch, micr1);
-         
+         System.out.println("Submitted");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -321,12 +322,14 @@ public class ACCOUNTS extends javax.swing.JFrame {
      accholder.setText("");
      micr.setText("");
      debitcard.setText("");
-     Basebranchaddress.setText("");       
+     Basebranchaddress.setText(""); 
+     System.out.println("Refreshed");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
          ALLAccounts aacc=new ALLAccounts();
          aacc.show();
+         System.out.println("ALL ACCOUNTS");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -351,7 +354,7 @@ public class ACCOUNTS extends javax.swing.JFrame {
          ar=userdata.split("\\|");
          DBFunctionInterface dbaccupd=new Updatedata();
          dbaccupd.updateaccdetail(accn, accifsc, accbankname, acch, ar[0], debitcard1, basebranch, micr1);
-         
+         System.out.println("Updated");
     }//GEN-LAST:event_jButton3ActionPerformed
 public void close(){
     setDefaultCloseOperation(Userdetail.DISPOSE_ON_CLOSE);
