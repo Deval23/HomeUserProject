@@ -78,6 +78,21 @@ import javax.swing.JOptionPane;
         return 1;
     }
     
+    public int insertelectriccon(String ConnNum,String ConsumerName,String MeterNum,String Location,String USID){
+         try{
+            Class.forName("oracle.jdbc.OracleDriver");
+            Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","12345");
+            Statement st=cn.createStatement();
+            String qr="insert into elecon values('"+ConnNum+"','"+ConsumerName+"','"+MeterNum+"','"+Location+"','"+USID+"')";
+            st.executeUpdate(qr);
+            System.out.println("ELECTRIC DETAILS ENTERED");
+            }
+           catch(Exception e){
+            System.out.println("ELECTRIC DETAILS NOT ENTERED "+e.getMessage());
+            }
+        return 1;
+    }
+    
     @Override
     public String searchuser(String X, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -113,6 +128,12 @@ import javax.swing.JOptionPane;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public String searchelecon(String eleconno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
     
  }
 

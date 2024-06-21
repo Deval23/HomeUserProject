@@ -195,8 +195,29 @@ public class SearchData implements DBFunctionInterface {
          return 1;
      }
      
-     
-     
+     public String searchelecon(String eleconno){
+          String eleconnoo=null,eleconname=null,Meternum=null,Location=null,USID=null;
+         try{    
+                       
+                    Class.forName("oracle.jdbc.driver.OracleDriver");
+                    Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
+                    Statement st=cn.createStatement();
+                    String str="Select * from elecon where ELECON='"+eleconno+"'";
+                    ResultSet rs=st.executeQuery(str);
+                    while(rs.next()){
+                      eleconname=rs.getString("ELECONNAME");
+                      Meternum=rs.getString("METERNUM");
+                      Location=rs.getString("LOCATION");
+                    
+                    }
+                         return eleconname+"|"+Meternum+"|"+Location;
+                    }
+                    catch(Exception e){
+                        System.out.println("CONNECT THE ORACLE DB FIRST");
+                    } 
+         return eleconname+"|"+Meternum+"|"+Location;       
+         
+      }   
 
     @Override
     public int insertnewuser(String usid, String Fname, String Lname, String PAN, String Adhar, String Usnumber) {
@@ -233,5 +254,10 @@ public class SearchData implements DBFunctionInterface {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    @Override
+    public int insertelectriccon(String ConnNum, String ConsumerName, String MeterNum, String Location, String USID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+       
 }

@@ -31,11 +31,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
  *
  * @author Deval Nayak
  */
+
 public class STart1 extends javax.swing.JFrame {
 
     /**
      * Creates new form STart1
      */
+    
     public STart1() {
         initComponents();
         close();
@@ -357,11 +359,12 @@ public class STart1 extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     String cont,firnam,lasnam,pan,adhar;
-    cont=CON.getText().toString();
-    firnam=FIR.getText().toString();
-    lasnam=LAS.getText().toString();
-    pan=PAN.getText().toString();
-    adhar=ADH.getText().toString();  
+    
+    cont=CON.getText().toString().toUpperCase();
+    firnam=FIR.getText().toString().toUpperCase();
+    lasnam=LAS.getText().toString().toUpperCase();
+    pan=PAN.getText().toString().toUpperCase();
+    adhar=ADH.getText().toString().toUpperCase();  
      String ar[];
     if(cont.isEmpty()==false){
     DBFunctionInterface irs=new SearchData();
@@ -472,46 +475,46 @@ public class STart1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-//        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win32V119\\chromedriver-win32\\chromedriver.exe");  
-//        WebDriver wb=new ChromeDriver();
-//        String pan; 
-//         pan=PAN.getText().toString();
-//          String adhar; 
-//        adhar=ADH.getText().toString();   
-//         
-//         try {
-//    	 wb.navigate().to("https://www.onlineservices.nsdl.com/paam/requestAndDownloadEPAN.html");
-//    	 Thread.sleep(300);
-//        wb.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/div/div/div/div/div/div/div/div/div/div/div/form/div[2]/div/div/input")).sendKeys(pan);
-//    	 Thread.sleep(100);
-//         wb.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/div/div/div/div/div/div/div/div/div/div/div/form/div[3]/div/div/input[1]")).sendKeys(adhar);
-//    	 Thread.sleep(2000);
-//         
-//       }
-//       catch(Exception e){
-//           System.out.println(e.getMessage());
-//       }
-//                
+        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_125\\chromedriver-win64\\chromedriver.exe");  
+        WebDriver wb=new ChromeDriver();
+        String pan; 
+         pan=PAN.getText().toString();
+          String adhar; 
+        adhar=ADH.getText().toString();   
+         
+         try {
+    	 wb.navigate().to("https://www.onlineservices.nsdl.com/paam/requestAndDownloadEPAN.html");
+    	 Thread.sleep(300);
+         wb.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/div/div/div/div/div/div/div/div/div/div/div/form/div[2]/div/div/input")).sendKeys(pan);
+    	 Thread.sleep(100);
+         wb.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/div/div/div/div/div/div/div/div/div/div/div/form/div[3]/div/div/input[1]")).sendKeys(adhar);
+    	 Thread.sleep(2000);
+         
+       }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+                
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-//        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win32V119\\chromedriver-win32\\chromedriver.exe");  
-//        WebDriver wb=new ChromeDriver();
-//        
-//          String adhar; 
-//        adhar=ADH.getText().toString();  
-//         
-//         try { 
-//    	 wb.navigate().to("https://myaadhaar.uidai.gov.in/genricDownloadAadhaar");
-//    	 Thread.sleep(2000);
-//        wb.findElement(By.xpath("/html/body/div[1]/div/div[3]/div/div/div[1]/div/form/div[3]/div[1]/div/div/div/input")).sendKeys(adhar);
-//    	 Thread.sleep(100);
-//         
-//         
-//       }
-//       catch(Exception e){
-//           System.out.println(e.getMessage());
-//       }
+        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_125\\chromedriver-win64\\chromedriver.exe");  
+        WebDriver wb=new ChromeDriver();
+        
+          String adhar; 
+        adhar=ADH.getText().toString();  
+         
+         try { 
+    	 wb.navigate().to("https://myaadhaar.uidai.gov.in/genricDownloadAadhaar");
+    	 Thread.sleep(2000);
+        wb.findElement(By.xpath("/html/body/div[1]/div/div[3]/div/div/div[1]/div/form/div[3]/div[1]/div/div/div/input")).sendKeys(adhar);
+    	 Thread.sleep(100);
+         
+         
+       }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }
 //        
 
     }//GEN-LAST:event_jButton10ActionPerformed

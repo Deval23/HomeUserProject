@@ -25,6 +25,7 @@
     <class>projecthomeoracledb.Userdetails_1</class>
     <class>projecthomeoracledb.Userdetail_1</class>
     <class>projecthomeoracledb.Accountdetail</class>
+    <class>projecthomeoracledb.Elecon</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="system"/>

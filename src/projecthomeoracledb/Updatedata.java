@@ -101,4 +101,16 @@ public class Updatedata implements DBFunctionInterface{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public int insertelectriccon(String ConnNum, String ConsumerName, String MeterNum, String Location, String USID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String searchelecon(String eleconno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+      
+    
 }

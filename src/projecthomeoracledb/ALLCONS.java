@@ -9,12 +9,12 @@ package projecthomeoracledb;
  *
  * @author Deval Nayak
  */
-public class Userdetail extends javax.swing.JFrame {
+public class ALLCONS extends javax.swing.JFrame {
 
     /**
-     * Creates new form Userdetail
+     * Creates new form ALLCONS
      */
-    public Userdetail() {
+    public ALLCONS() {
         initComponents();
         close();
     }
@@ -30,33 +30,28 @@ public class Userdetail extends javax.swing.JFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@localhost:1521:XEPU").createEntityManager();
-        userdetail_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Userdetail_1 u");
-        userdetail_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : userdetail_1Query.getResultList();
-        userdetail_1Query1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Userdetail_1 u");
-        userdetail_1List1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : userdetail_1Query1.getResultList();
+        eleconQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
+        eleconList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, userdetail_1List1, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${usid}"));
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, eleconList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${elecon}"));
+        columnBinding.setColumnName("Elecon");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${usid}"));
         columnBinding.setColumnName("Usid");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${ufname}"));
-        columnBinding.setColumnName("Ufname");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${location}"));
+        columnBinding.setColumnName("Location");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${ulname}"));
-        columnBinding.setColumnName("Ulname");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${meternum}"));
+        columnBinding.setColumnName("Meternum");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${upan}"));
-        columnBinding.setColumnName("Upan");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${uadhar}"));
-        columnBinding.setColumnName("Uadhar");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${ucontact}"));
-        columnBinding.setColumnName("Ucontact");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${eleconname}"));
+        columnBinding.setColumnName("Eleconname");
         columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
@@ -68,15 +63,15 @@ public class Userdetail extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1106, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1101, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -84,12 +79,15 @@ public class Userdetail extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void close(){
-    setDefaultCloseOperation(Userdetail.DISPOSE_ON_CLOSE);
-}
+
     /**
      * @param args the command line arguments
      */
+    
+    
+    public void close(){
+    setDefaultCloseOperation(Userdetail.DISPOSE_ON_CLOSE);
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -104,32 +102,30 @@ public void close(){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Userdetail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ALLCONS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Userdetail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ALLCONS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Userdetail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ALLCONS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Userdetail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ALLCONS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Userdetail().setVisible(true);
+                new ALLCONS().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.util.List<projecthomeoracledb.Elecon> eleconList;
+    private javax.persistence.Query eleconQuery;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.util.List<projecthomeoracledb.Userdetail_1> userdetail_1List;
-    private java.util.List<projecthomeoracledb.Userdetail_1> userdetail_1List1;
-    private javax.persistence.Query userdetail_1Query;
-    private javax.persistence.Query userdetail_1Query1;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
