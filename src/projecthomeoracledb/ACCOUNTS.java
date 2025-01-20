@@ -5,6 +5,11 @@
  */
 package projecthomeoracledb;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author Deval Nayak
@@ -17,6 +22,8 @@ public class ACCOUNTS extends javax.swing.JFrame {
     public ACCOUNTS() {
         initComponents();
         close();
+        FillCombo2();
+        
     }
 
     /**
@@ -40,7 +47,6 @@ public class ACCOUNTS extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         bankname = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        accholder = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         debitcard = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -50,6 +56,7 @@ public class ACCOUNTS extends javax.swing.JFrame {
         micr = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        CB2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -165,7 +172,7 @@ public class ACCOUNTS extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(210, 210, 210)
+                                        .addGap(141, 141, 141)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(298, 298, 298)
@@ -194,8 +201,10 @@ public class ACCOUNTS extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(accholder, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                            .addComponent(micr))))
+                            .addComponent(micr, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(CB2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(2, 2, 2)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -228,8 +237,8 @@ public class ACCOUNTS extends javax.swing.JFrame {
                             .addComponent(bankname, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(accholder, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                            .addComponent(CB2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,20 +279,29 @@ public class ACCOUNTS extends javax.swing.JFrame {
     }//GEN-LAST:event_accnoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     String accnum,accdata;
+     String accnum,accdata,accname;
      String arr[];
      accnum=accno.getText();
+     accname=CB2.getSelectedItem().toString();
+     if(!accnum.isEmpty()){
      DBFunctionInterface dbshacc=new SearchData();
      accdata=dbshacc.searchaccount(accnum);
      arr=accdata.split("\\|");
      accno.setText(arr[0]);
      ifsc.setText(arr[1]);
      bankname.setText(arr[2]);
-     accholder.setText(arr[3]);
+     CB2.setSelectedItem(arr[3].toUpperCase());
      micr.setText(arr[7]);
      debitcard.setText(arr[5]);
      Basebranchaddress.setText(arr[6]);
      System.out.println("Searched");
+     }
+     else{
+          DBFunctionInterface dbshacc=new SearchData();
+          accdata=dbshacc.searchaccount(accname);
+     }
+     
+     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void banknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_banknameActionPerformed
@@ -303,7 +321,7 @@ public class ACCOUNTS extends javax.swing.JFrame {
          accn=accno.getText();
          accifsc=ifsc.getText();
          accbankname=bankname.getText();
-         acch=accholder.getText();
+         acch=CB2.getSelectedItem().toString();
          debitcard1=debitcard.getText();
          basebranch=Basebranchaddress.getText();
          micr1=micr.getText();
@@ -319,7 +337,7 @@ public class ACCOUNTS extends javax.swing.JFrame {
      accno.setText("");
      ifsc.setText("");
      bankname.setText("");
-     accholder.setText("");
+     CB2.setSelectedItem("NULL");
      micr.setText("");
      debitcard.setText("");
      Basebranchaddress.setText(""); 
@@ -345,7 +363,8 @@ public class ACCOUNTS extends javax.swing.JFrame {
          accn=accno.getText();
          accifsc=ifsc.getText();
          accbankname=bankname.getText();
-         acch=accholder.getText();
+         String fn1=CB2.getSelectedItem().toString();
+         acch=fn1;
          debitcard1=debitcard.getText();
          basebranch=Basebranchaddress.getText();
          micr1=micr.getText();
@@ -359,11 +378,36 @@ public class ACCOUNTS extends javax.swing.JFrame {
 public void close(){
     setDefaultCloseOperation(Userdetail.DISPOSE_ON_CLOSE);
 }
+
+private void FillCombo2(){
+    String Id=null; 
+    try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
+            Statement st=cn.createStatement();
+            String qr="Select * from userdetail";
+            ResultSet rs=st.executeQuery(qr);
+            CB2.addItem("NULL");
+            while(rs.next()){
+            Id=rs.getString("UFNAME");
+            CB2.addItem(Id.toUpperCase());
+            }
+           
+            cn.close();
+           
+        }   
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            
+        }
+     
+        
+}
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+       /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -396,7 +440,7 @@ public void close(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Basebranchaddress;
-    private javax.swing.JTextField accholder;
+    private javax.swing.JComboBox<String> CB2;
     private javax.swing.JTextField accno;
     private javax.swing.JTextField bankname;
     private javax.swing.JTextField debitcard;

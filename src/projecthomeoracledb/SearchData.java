@@ -188,8 +188,7 @@ public class SearchData implements DBFunctionInterface {
          return accno+"|"+acifsc+"|"+accbankname+"|"+acchold+"|"+acusid+"|"+debitcard+"|"+basebranch+"|"+micrcod;
          
      }
-     
-     public int searchallkhata(){
+      public int searchallkhata(){
   
          
          return 1;
@@ -217,7 +216,91 @@ public class SearchData implements DBFunctionInterface {
                     } 
          return eleconname+"|"+Meternum+"|"+Location;       
          
-      }   
+      }
+     
+     
+     public String searchlink(String institution){
+          String WEBLINKS=null;
+         try{    
+                       
+                    Class.forName("oracle.jdbc.driver.OracleDriver");
+                    Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
+                    Statement st=cn.createStatement();
+                    String str="Select * from links where INSTITUTION='"+institution+"'";
+                    ResultSet rs=st.executeQuery(str);
+                    while(rs.next()){
+                      WEBLINKS=rs.getString("WEBLINK");
+                      }
+                         return WEBLINKS;
+                    }
+                    catch(Exception e){
+                        System.out.println("CONNECT THE ORACLE DB FIRST");
+                    } 
+         return WEBLINKS;       
+         
+      }
+     
+     public int searchlinkcount(){
+         int count=0;
+         try{    
+                       
+                    Class.forName("oracle.jdbc.driver.OracleDriver");
+                    Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
+                    Statement st=cn.createStatement();
+                    String str="Select count(*) from links";
+                    ResultSet rs=st.executeQuery(str);
+                    rs.next();
+                    count=rs.getInt(1);
+                    return count;
+                    }
+                    catch(Exception e){
+                        System.out.println("CONNECT THE ORACLE DB FIRST");
+                    } 
+         return count;    
+     }
+    
+      public int searchkhatanoSELE(int khatano){
+          int seleniumddrno=0;
+         try{    
+                       
+                    Class.forName("oracle.jdbc.driver.OracleDriver");
+                    Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
+                    Statement st=cn.createStatement();
+                    String str="Select SELENIUMDDNO from khatano where khatano="+khatano+"";
+                    ResultSet rs=st.executeQuery(str);
+                    while(rs.next()){
+                      seleniumddrno=rs.getInt("SELENIUMDDNO");
+                      }
+                         return seleniumddrno;
+                    }
+                    catch(Exception e){
+                        System.out.println("CONNECT THE ORACLE DB FIRST");
+                    } 
+         return seleniumddrno;       
+         
+      }
+      
+//   public String searchlink(){
+//          String WEBLINKS=null,INSTITUTION=null;
+//         try{    
+//                       
+//                    Class.forName("oracle.jdbc.driver.OracleDriver");
+//                    Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
+//                    Statement st=cn.createStatement();
+//                    String str="Select * from links";
+//                    ResultSet rs=st.executeQuery(str);
+//                    while(rs.next()){
+//                      INSTITUTION=rs.getString("INSTITUTION");
+//                      WEBLINKS=rs.getString("WEBLINK");
+//                      }
+//                         return INSTITUTION+"|"+WEBLINKS;
+//                    }
+//                    catch(Exception e){
+//                        System.out.println("CONNECT THE ORACLE DB FIRST");
+//                    } 
+//         return WEBLINKS;       
+//         
+//      }  
 
     @Override
     public int insertnewuser(String usid, String Fname, String Lname, String PAN, String Adhar, String Usnumber) {
@@ -256,6 +339,16 @@ public class SearchData implements DBFunctionInterface {
 
     @Override
     public int insertelectriccon(String ConnNum, String ConsumerName, String MeterNum, String Location, String USID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+      @Override
+    public int insertrelatedlinks(int count, String Bankname, String Relatedlink) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int insertkhatavillage(int khatano, String Village, int Seleddrno) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

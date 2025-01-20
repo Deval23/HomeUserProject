@@ -93,6 +93,39 @@ import javax.swing.JOptionPane;
         return 1;
     }
     
+      public int insertrelatedlinks(int count,String Bankname,String Relatedlink){
+         try{
+            Class.forName("oracle.jdbc.OracleDriver");
+            Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","12345");
+            Statement st=cn.createStatement();
+            String qr="insert into links values("+count+",'"+Bankname+"','"+Relatedlink+"')";
+            st.executeUpdate(qr);
+            System.out.println("LINK ENTERED");
+            }
+           catch(Exception e){
+            System.out.println("LINK NOT SUBMITTED "+e.getMessage());
+            }
+        return 1; 
+         
+     }
+      
+      
+       public int insertkhatavillage(int khatano,String Village,int Seleddrno){
+         try{
+            Class.forName("oracle.jdbc.OracleDriver");
+            Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","12345");
+            Statement st=cn.createStatement();
+            String qr="insert into khatano values("+khatano+",'"+Village+"',"+Seleddrno+")";
+            st.executeUpdate(qr);
+            System.out.println("KhataNO ENTERED");
+            }
+           catch(Exception e){
+            System.out.println("KhataNO NOT SUBMITTED "+e.getMessage());
+            }
+        return 1; 
+         
+     }
+  
     @Override
     public String searchuser(String X, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -130,6 +163,21 @@ import javax.swing.JOptionPane;
 
     @Override
     public String searchelecon(String eleconno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String searchlink(String institution) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int searchlinkcount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int searchkhatanoSELE(int khatano) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
