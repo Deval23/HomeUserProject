@@ -26,30 +26,29 @@ public class ALLKHATASURVEY extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@localhost:1521:XEPU").createEntityManager();
         khatasurveyconnQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT k FROM Khatasurveyconn k");
         khatasurveyconnList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : khatasurveyconnQuery.getResultList();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        khatasurveyconnQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT k FROM Khatasurveyconn k");
+        khatasurveyconnList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : khatasurveyconnQuery1.getResultList();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, khatasurveyconnList, jTable2);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${khatanum}"));
-        columnBinding.setColumnName("Khatanum");
-        columnBinding.setColumnClass(java.math.BigInteger.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${village}"));
-        columnBinding.setColumnName("Village");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${surveyno}"));
-        columnBinding.setColumnName("Surveyno");
-        columnBinding.setColumnClass(java.math.BigDecimal.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
-
-        jScrollPane2.setViewportView(jTable2);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,18 +56,16 @@ public class ALLKHATASURVEY extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -110,10 +107,11 @@ public class ALLKHATASURVEY extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager entityManager;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private java.util.List<projecthomeoracledb.Khatasurveyconn> khatasurveyconnList;
+    private java.util.List<projecthomeoracledb.Khatasurveyconn> khatasurveyconnList1;
     private javax.persistence.Query khatasurveyconnQuery;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
+    private javax.persistence.Query khatasurveyconnQuery1;
     // End of variables declaration//GEN-END:variables
 }

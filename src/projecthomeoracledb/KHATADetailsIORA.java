@@ -29,18 +29,21 @@ import org.openqa.selenium.support.ui.Select;
  * @author Deval Nayak
  */
 public class KHATADetailsIORA extends javax.swing.JFrame {
-
+ WebDriver wb;
     /**
      * Creates new form KHATADetails
      */
     public KHATADetailsIORA() {
         initComponents();
-        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_131\\chromedriver-win64\\chromedriver.exe");  
+        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_140\\chromedriver.exe");  
         FillCombokhata();
         FillCombokhatasurveyno();
         FillMAPS();
         FillComboIORA1();
         close();
+        
+        
+        
        
       }
 
@@ -66,6 +69,7 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         CBIORA = new javax.swing.JComboBox<>();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,6 +144,13 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setText("GET 12");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -154,16 +165,19 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CBIORA, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(CBKhata, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(41, 41, 41)
-                                    .addComponent(CBsurveyno, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(CBKhata, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(41, 41, 41)
+                                        .addComponent(CBsurveyno, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(39, 39, 39)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,9 +217,11 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CBKhata, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CBsurveyno, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CBKhata, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CBsurveyno, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,61 +250,58 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
-        WebDriver wb=new ChromeDriver();
-          JavascriptExecutor jse = (JavascriptExecutor) wb;          
-          DBFunctionInterface dbij=new SearchData();
-          String Slink=dbij.searchlink("ANYROR");
+      DBFunctionInterface dbij=new SearchData();
           String khata=CBKhata.getSelectedItem().toString();
           String ar[];
           ar=khata.split("-");
           int seleniumddno=dbij.searchkhatanoSELE(Integer.parseInt(ar[0]));
           
        try { 
-    	 wb.navigate().to(Slink);
-         wb.manage().window().maximize();
     	 Thread.sleep(2000);
-         WebElement district=wb.findElement(By.id("ContentPlaceHolder1_drpLandRecord"));        
+         WebElement district=wb.findElement(By.id("ddl_ror_type"));        
          Select districtdropdown=new Select(district);
-         districtdropdown.selectByIndex(6);
-         wb.navigate().refresh();
+         districtdropdown.selectByIndex(3);
          Thread.sleep(500);
-        
-        }
+       }
        catch(Exception e){
            System.out.println(e.getMessage());
        }    
           
        try { 
     	Thread.sleep(2000);
-         WebElement district=wb.findElement(By.id("ContentPlaceHolder1_ddlDistrict"));        
+         WebElement district=wb.findElement(By.id("ddl_district"));        
          Select districtdropdown=new Select(district);
          districtdropdown.selectByIndex(25);
-         wb.navigate().refresh();
          Thread.sleep(500);
         }
        catch(Exception e){
            System.out.println(e.getMessage());
        }  
          try{
-              WebElement taluka=wb.findElement(By.id("ContentPlaceHolder1_ddlTaluka"));
+              WebElement taluka=wb.findElement(By.id("ddl_taluka"));
               Select talukadropdown=new Select(taluka);
               talukadropdown.selectByIndex(5);
-              wb.navigate().refresh();
               Thread.sleep(500);
          }catch(Exception e){
               System.out.println(e.getMessage());
          }
          
          try{
-            WebElement Village=wb.findElement(By.id("ContentPlaceHolder1_ddlVillage"));
+            WebElement Village=wb.findElement(By.id("ddl_village"));
             Select villagedropdown=new Select(Village);
             villagedropdown.selectByIndex(seleniumddno);
-            wb.navigate().refresh();
             Thread.sleep(500);
-            wb.findElement(By.id("ContentPlaceHolder1_txtNo")).sendKeys(ar[0]);
+                   
+           }catch(Exception e){
+              System.out.println(e.getMessage());
+         }
+         
+         try{
+            WebElement khatano=wb.findElement(By.id("txt_ror_no"));
+            khatano.sendKeys(ar[0]);
             Thread.sleep(500);
-             jse.executeScript("window.scrollBy(0,250)", "");
+            wb.findElement(By.id("btn_add_ror")).click();
+             Thread.sleep(1000);
            }catch(Exception e){
               System.out.println(e.getMessage());
          }
@@ -296,9 +309,8 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ANYRORWEBSITEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANYRORWEBSITEActionPerformed
-         WebDriver wb=new ChromeDriver();
-        
-          DBFunctionInterface dbij=new SearchData();
+       wb=new ChromeDriver();   
+        DBFunctionInterface dbij=new SearchData();
           String Slink=dbij.searchlink("IORA");
           String cont=CBIORA.getSelectedItem().toString().toUpperCase();
            DBFunctionInterface irs=new SearchData();
@@ -310,27 +322,20 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
           arr=khata.split("-");
           int seleniumddno=dbij.searchkhatanoSELE(Integer.parseInt(arr[0]));
            
-          
-      try { 
+       try { 
     	 wb.navigate().to(Slink);
-    	 Thread.sleep(2000);
+         Thread.sleep(2000);
          wb.findElement(By.id("txt_mobile_no")).sendKeys(ar[5]);
-         Thread.sleep(30000);
+         int captcha = JOptionPane.showConfirmDialog(null, "confirm","Title of the panel", JOptionPane.OK_CANCEL_OPTION);
+         wb.findElement(By.id("btn_generate_otp")).click();
+         int captchb = JOptionPane.showConfirmDialog(null, "confirm","Title of the panel", JOptionPane.OK_CANCEL_OPTION);
+         wb.findElement(By.id("btn_next")).click();
         }
        catch(Exception e){
            System.out.println(e.getMessage());
        }
       
-//      
-//      try{
-//         wb.findElement(By.id("ddl_ror_type")).click();
-//         WebElement doctype=wb.findElement(By.id("ddl_ror_type"));        
-//         Select doctypedropdown=new Select(doctype);
-//         doctypedropdown.selectByIndex(1); 
-//         }catch(Exception e){
-//          System.out.println(e.getMessage());
-//      }
-//      
+      
 //      try{
 //          wb.findElement(By.id("ddl_district")).click();
 //         WebElement district=wb.findElement(By.id("ddl_district"));        
@@ -368,64 +373,54 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-          WebDriver wb=new ChromeDriver();
-          JavascriptExecutor jse = (JavascriptExecutor) wb;          
-          DBFunctionInterface dbij=new SearchData();
-          String Slink=dbij.searchlink("ANYROR");
-          String khata=CBsurveyno.getSelectedItem().toString();
+         DBFunctionInterface dbij=new SearchData();
+          String khata=CBKhata.getSelectedItem().toString();
           String ar[];
           ar=khata.split("-");
           int seleniumddno=dbij.searchkhatanoSELE(Integer.parseInt(ar[0]));
           
        try { 
-    	 wb.navigate().to(Slink);
-         wb.manage().window().maximize();
     	 Thread.sleep(2000);
-         WebElement district=wb.findElement(By.id("ContentPlaceHolder1_drpLandRecord"));        
+         WebElement district=wb.findElement(By.id("ddl_ror_type"));        
          Select districtdropdown=new Select(district);
-         districtdropdown.selectByIndex(5);
-         wb.navigate().refresh();
+         districtdropdown.selectByIndex(1);
          Thread.sleep(500);
-        }
+       }
        catch(Exception e){
            System.out.println(e.getMessage());
        }    
           
        try { 
     	Thread.sleep(2000);
-         WebElement district=wb.findElement(By.id("ContentPlaceHolder1_ddlDistrict"));        
+         WebElement district=wb.findElement(By.id("ddl_district"));        
          Select districtdropdown=new Select(district);
          districtdropdown.selectByIndex(25);
-         wb.navigate().refresh();
          Thread.sleep(500);
         }
        catch(Exception e){
            System.out.println(e.getMessage());
        }  
          try{
-              WebElement taluka=wb.findElement(By.id("ContentPlaceHolder1_ddlTaluka"));
+              WebElement taluka=wb.findElement(By.id("ddl_taluka"));
               Select talukadropdown=new Select(taluka);
               talukadropdown.selectByIndex(5);
-              wb.navigate().refresh();
               Thread.sleep(500);
          }catch(Exception e){
               System.out.println(e.getMessage());
          }
          
          try{
-            WebElement Village=wb.findElement(By.id("ContentPlaceHolder1_ddlVillage"));
+            WebElement Village=wb.findElement(By.id("ddl_village"));
             Select villagedropdown=new Select(Village);
             villagedropdown.selectByIndex(seleniumddno);
-            wb.navigate().refresh();
             Thread.sleep(500);
-            wb.findElement(By.id("ContentPlaceHolder1_txtNo")).sendKeys(ar[0]);
-            Thread.sleep(500);
-             }catch(Exception e){
+                   
+           }catch(Exception e){
               System.out.println(e.getMessage());
          }
          
-         try{
-           WebElement surveyno=wb.findElement(By.id("ContentPlaceHolder1_ddlSurveyNo"));
+           try{
+           WebElement surveyno=wb.findElement(By.id("ddl_surveyno"));
             Select objsurvey=new Select(surveyno);
             String checksurveyno=CBsurveyno.getSelectedItem().toString();
             String arr[]=checksurveyno.split("-");
@@ -433,10 +428,11 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
             String str=arr[arlen-1];
             objsurvey.selectByValue(str);
             Thread.sleep(500);  
-            jse.executeScript("window.scrollBy(0,250)", "");
-         }catch(Exception e){
-             System.out.println(e.getMessage());
-         }
+            wb.findElement(By.id("btn_add_ror")).click();
+            Thread.sleep(1000);
+           }catch(Exception ex){
+               System.out.println(ex.getMessage());
+           }
          
        
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -488,6 +484,70 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
             System.out.println("File Not Found");
         }        
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+           DBFunctionInterface dbij=new SearchData();
+          String khata=CBKhata.getSelectedItem().toString();
+          String ar[];
+          ar=khata.split("-");
+          int seleniumddno=dbij.searchkhatanoSELE(Integer.parseInt(ar[0]));
+          
+       try { 
+    	 Thread.sleep(2000);
+         WebElement district=wb.findElement(By.id("ddl_ror_type"));        
+         Select districtdropdown=new Select(district);
+         districtdropdown.selectByIndex(2);
+         Thread.sleep(500);
+       }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }    
+          
+       try { 
+    	Thread.sleep(2000);
+         WebElement district=wb.findElement(By.id("ddl_district"));        
+         Select districtdropdown=new Select(district);
+         districtdropdown.selectByIndex(25);
+         Thread.sleep(500);
+        }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }  
+         try{
+              WebElement taluka=wb.findElement(By.id("ddl_taluka"));
+              Select talukadropdown=new Select(taluka);
+              talukadropdown.selectByIndex(5);
+              Thread.sleep(500);
+         }catch(Exception e){
+              System.out.println(e.getMessage());
+         }
+         
+         try{
+            WebElement Village=wb.findElement(By.id("ddl_village"));
+            Select villagedropdown=new Select(Village);
+            villagedropdown.selectByIndex(seleniumddno);
+            Thread.sleep(500);
+                   
+           }catch(Exception e){
+              System.out.println(e.getMessage());
+         }
+         
+           try{
+           WebElement surveyno=wb.findElement(By.id("ddl_surveyno"));
+            Select objsurvey=new Select(surveyno);
+            String checksurveyno=CBsurveyno.getSelectedItem().toString();
+            String arr[]=checksurveyno.split("-");
+            int arlen=arr.length;
+            String str=arr[arlen-1];
+            objsurvey.selectByValue(str);
+            Thread.sleep(500);  
+            wb.findElement(By.id("btn_add_ror")).click();
+            Thread.sleep(1000);
+           }catch(Exception ex){
+               System.out.println(ex.getMessage());
+           }
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void FillCombokhata(){
     String Villagenam=null; 
@@ -616,6 +676,7 @@ public class KHATADetailsIORA extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

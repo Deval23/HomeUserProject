@@ -4,33 +4,25 @@
  * and open the template in the editor.
 */
 package projecthomeoracledb;
-
-
 import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import javax.swing.JFrame;
-import org.openqa.selenium.By;
+import org.openqa.selenium.By; 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,6 +30,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 
 public class STart1 extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form STart1
@@ -46,8 +40,9 @@ public class STart1 extends javax.swing.JFrame {
     public STart1() {
         initComponents();
         close();
-      /*https://googlechromelabs.github.io/chrome-for-testing/*/
-        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_131\\chromedriver-win64\\chromedriver.exe");  
+      /* https://googlechromelabs.github.io/chrome-for-testing/*/
+       
+        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_140\\chromedriver.exe");  
     }
 
     /**
@@ -564,11 +559,16 @@ public class STart1 extends javax.swing.JFrame {
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
       String upsc="https://upsc.gov.in/examinations/active-exams";
       String ssc="https://ssc.nic.in/";
-      
+      String ssc1="https://ssc.gov.in/home";
+      String SBI="https://sbi.co.in/web/careers/Current-openings";
+      String RBI="https://opportunities.rbi.org.in/Scripts/Vacancies.aspx";
       try{
         Desktop dk=Desktop.getDesktop();
         dk.browse(new URI(upsc));
         dk.browse(new URI(ssc));
+        dk.browse(new URI(ssc1));
+        dk.browse(new URI(SBI));
+         dk.browse(new URI(RBI));
         }
       catch(Exception e){
           
@@ -577,18 +577,22 @@ public class STart1 extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
       String Seleupdate="https://googlechromelabs.github.io/chrome-for-testing/";
-      String selebrowser="chrome://settings/help";
+//      String selebrowser="chrome://settings/help";
       WebDriver wb=new ChromeDriver();
+//        String sellfolder="C:\\CHROMEDRIVERS";
+        File dirToOpen = null;
       try{
-        Desktop dk=Desktop.getDesktop();
-        wb.navigate().to(selebrowser);
         wb.navigate().to(Seleupdate);
-//        dk.browse(new URI(Seleupdate));
-           
+        String link=wb.findElement(By.xpath("/html/body/section[1]/div/table/tbody/tr[9]/td[1]")).getText();
+        wb.navigate().to(link);
         
-      }catch(Exception e){
+          }catch(Exception e){
           System.out.println(e.getMessage());
       }
+
+
+
+
     }//GEN-LAST:event_jButton12ActionPerformed
 public void close(){
     setDefaultCloseOperation(Userdetail.DISPOSE_ON_CLOSE);

@@ -5,7 +5,16 @@
  */
 package projecthomeoracledb;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  *
@@ -18,6 +27,9 @@ public class ElectricityRelated extends javax.swing.JFrame {
      */
     public ElectricityRelated() {
         initComponents();
+        FillComboelecon();
+        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_140\\chromedriver.exe");  
+
         close();
     }
 
@@ -45,6 +57,8 @@ public class ElectricityRelated extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        ELECb1 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +104,11 @@ public class ElectricityRelated extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton3.setText("UPDATE");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton4.setText("ALL CONNECTIONS");
@@ -107,6 +126,19 @@ public class ElectricityRelated extends javax.swing.JFrame {
             }
         });
 
+        ELECb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ELECb1ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("OPEN BILL");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,16 +148,6 @@ public class ElectricityRelated extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(292, 292, 292)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ConnNum, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(NameHolder, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -146,6 +168,22 @@ public class ElectricityRelated extends javax.swing.JFrame {
                                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(241, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(NameHolder, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(228, 228, 228)
+                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ConnNum, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ELECb1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(140, 140, 140))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,11 +193,17 @@ public class ElectricityRelated extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConnNum, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NameHolder, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConnNum, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ELECb1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameHolder, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,6 +295,65 @@ public void close(){
         // TODO add your handling code here:
     }//GEN-LAST:event_LocationConActionPerformed
 
+    private void ELECb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELECb1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ELECb1ActionPerformed
+ private void FillComboelecon(){
+    String Villagenam=null; 
+    String eleconn;
+    try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
+            Statement st=cn.createStatement();
+            String qr="Select * from elecon";
+            ResultSet rs=st.executeQuery(qr);
+            ELECb1.removeAllItems();
+            while(rs.next()){
+            eleconn=rs.getString("Elecon");
+            Villagenam=rs.getString("Eleconname");
+            ELECb1.addItem(eleconn+"-"+Villagenam);
+            }
+          cn.close();
+         }   
+        catch(Exception e){
+            System.out.println(e.getMessage());
+         }
+       
+}
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+ WebDriver wb=new ChromeDriver();
+        
+          DBFunctionInterface dbij=new SearchData();
+          String Slink=dbij.searchlink("DGVCL");
+          String eleconnum=ELECb1.getSelectedItem().toString();
+          String eleconno[]=eleconnum.split("-");
+          
+      try { 
+    	 wb.navigate().to(Slink);
+    	 Thread.sleep(2000);
+         WebElement district=wb.findElement(By.id("companyname"));        
+         Select districtdropdown=new Select(district);
+         districtdropdown.selectByIndex(1);
+         Thread.sleep(500);
+        }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }  
+         try{
+              WebElement taluka=wb.findElement(By.id("consnumber"));
+              taluka.sendKeys(eleconno);
+              Thread.sleep(500);
+         }catch(Exception e){
+              System.out.println(e.getMessage());
+         }
+         
+            
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -289,6 +392,7 @@ public void close(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ConnNum;
+    private javax.swing.JComboBox<String> ELECb1;
     private javax.swing.JTextField LocationCon;
     private javax.swing.JTextField MeterNum;
     private javax.swing.JTextField NameHolder;
@@ -297,6 +401,7 @@ public void close(){
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

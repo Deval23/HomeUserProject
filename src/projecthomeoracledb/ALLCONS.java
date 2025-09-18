@@ -32,30 +32,43 @@ public class ALLCONS extends javax.swing.JFrame {
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@localhost:1521:XEPU").createEntityManager();
         eleconQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
         eleconList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery.getResultList();
+        eleconQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
+        eleconList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery1.getResultList();
+        eleconQuery2 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
+        eleconList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery2.getResultList();
+        eleconQuery3 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
+        eleconList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery3.getResultList();
+        eleconQuery4 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
+        eleconList4 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery4.getResultList();
+        eleconQuery5 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
+        eleconList5 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery5.getResultList();
+        eleconQuery6 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
+        eleconList6 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery6.getResultList();
+        eleconQuery7 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Elecon e");
+        eleconList7 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : eleconQuery7.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, eleconList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${elecon}"));
-        columnBinding.setColumnName("Elecon");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${usid}"));
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, eleconList7, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${usid}"));
         columnBinding.setColumnName("Usid");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${location}"));
-        columnBinding.setColumnName("Location");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${meternum}"));
-        columnBinding.setColumnName("Meternum");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${elecon}"));
+        columnBinding.setColumnName("Elecon");
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${eleconname}"));
         columnBinding.setColumnName("Eleconname");
         columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${meternum}"));
+        columnBinding.setColumnName("Meternum");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${location}"));
+        columnBinding.setColumnName("Location");
+        columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
-
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -63,16 +76,16 @@ public class ALLCONS extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1101, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1099, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(276, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
@@ -122,7 +135,21 @@ public class ALLCONS extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.util.List<projecthomeoracledb.Elecon> eleconList;
+    private java.util.List<projecthomeoracledb.Elecon> eleconList1;
+    private java.util.List<projecthomeoracledb.Elecon> eleconList2;
+    private java.util.List<projecthomeoracledb.Elecon> eleconList3;
+    private java.util.List<projecthomeoracledb.Elecon> eleconList4;
+    private java.util.List<projecthomeoracledb.Elecon> eleconList5;
+    private java.util.List<projecthomeoracledb.Elecon> eleconList6;
+    private java.util.List<projecthomeoracledb.Elecon> eleconList7;
     private javax.persistence.Query eleconQuery;
+    private javax.persistence.Query eleconQuery1;
+    private javax.persistence.Query eleconQuery2;
+    private javax.persistence.Query eleconQuery3;
+    private javax.persistence.Query eleconQuery4;
+    private javax.persistence.Query eleconQuery5;
+    private javax.persistence.Query eleconQuery6;
+    private javax.persistence.Query eleconQuery7;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

@@ -9,14 +9,13 @@ package projecthomeoracledb;
  *
  * @author Deval Nayak
  */
-public class ALLAccounts extends javax.swing.JFrame {
+public class ALLACCOUNT extends javax.swing.JFrame {
 
     /**
-     * Creates new form ALLAccounts
+     * Creates new form ALLACCOUNT
      */
-    public ALLAccounts() {
+    public ALLACCOUNT() {
         initComponents();
-        close();
     }
 
     /**
@@ -38,22 +37,20 @@ public class ALLAccounts extends javax.swing.JFrame {
         accountdetailList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : accountdetailQuery2.getResultList();
         accountdetailQuery3 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT a FROM Accountdetail a");
         accountdetailList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : accountdetailQuery3.getResultList();
-        accountdetailQuery4 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT a FROM Accountdetail a");
-        accountdetailList4 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : accountdetailQuery4.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, accountdetailList4, jTable1);
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, accountdetailList3, jTable1);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${accno}"));
         columnBinding.setColumnName("Accno");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${usid}"));
-        columnBinding.setColumnName("Usid");
-        columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${accholder}"));
         columnBinding.setColumnName("Accholder");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${usid}"));
+        columnBinding.setColumnName("Usid");
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${bankname}"));
         columnBinding.setColumnName("Bankname");
@@ -72,6 +69,7 @@ public class ALLAccounts extends javax.swing.JFrame {
         columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
+
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -80,14 +78,14 @@ public class ALLAccounts extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 997, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -96,10 +94,6 @@ public class ALLAccounts extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public void close(){
-    setDefaultCloseOperation(Userdetail.DISPOSE_ON_CLOSE);
-}
     /**
      * @param args the command line arguments
      */
@@ -117,20 +111,20 @@ public class ALLAccounts extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ALLAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ALLACCOUNT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ALLAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ALLACCOUNT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ALLAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ALLACCOUNT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ALLAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ALLACCOUNT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ALLAccounts().setVisible(true);
+                new ALLACCOUNT().setVisible(true);
             }
         });
     }
@@ -140,12 +134,10 @@ public class ALLAccounts extends javax.swing.JFrame {
     private java.util.List<projecthomeoracledb.Accountdetail> accountdetailList1;
     private java.util.List<projecthomeoracledb.Accountdetail> accountdetailList2;
     private java.util.List<projecthomeoracledb.Accountdetail> accountdetailList3;
-    private java.util.List<projecthomeoracledb.Accountdetail> accountdetailList4;
     private javax.persistence.Query accountdetailQuery;
     private javax.persistence.Query accountdetailQuery1;
     private javax.persistence.Query accountdetailQuery2;
     private javax.persistence.Query accountdetailQuery3;
-    private javax.persistence.Query accountdetailQuery4;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

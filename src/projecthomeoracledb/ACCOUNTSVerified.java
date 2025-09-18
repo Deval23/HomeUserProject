@@ -24,8 +24,10 @@ public class ACCOUNTSVerified extends javax.swing.JFrame {
      */
     public ACCOUNTSVerified() {
      initComponents();
-    System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_131\\chromedriver-win64\\chromedriver.exe");  
-     close();
+    System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_140\\chromedriver.exe");  
+      FillCombo3(); 
+    close();
+     
     }
 
     
@@ -43,7 +45,6 @@ public class ACCOUNTSVerified extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         CBNAME = new javax.swing.JComboBox<>();
         CBACCOUNT = new javax.swing.JComboBox<>();
-        ONDATA = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -63,14 +64,6 @@ public class ACCOUNTSVerified extends javax.swing.JFrame {
         CBACCOUNT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CBACCOUNTActionPerformed(evt);
-            }
-        });
-
-        ONDATA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ONDATA.setText("DATA ON");
-        ONDATA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ONDATAActionPerformed(evt);
             }
         });
 
@@ -117,8 +110,7 @@ public class ACCOUNTSVerified extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ONDATA, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(CBNAME, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CBNAME, 0, 250, Short.MAX_VALUE)
                             .addComponent(CBACCOUNT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -133,13 +125,8 @@ public class ACCOUNTSVerified extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(ONDATA, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
                         .addComponent(CBNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -171,13 +158,6 @@ public class ACCOUNTSVerified extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ONDATAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ONDATAActionPerformed
-       CBACCOUNT.removeAllItems();
-       CBNAME.removeAllItems();
-        FillCombo3();
-      
-    }//GEN-LAST:event_ONDATAActionPerformed
     public void close(){
     setDefaultCloseOperation(Userdetail.DISPOSE_ON_CLOSE);
 }
@@ -311,7 +291,6 @@ public void FillCombo4(String achname){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBACCOUNT;
     private javax.swing.JComboBox<String> CBNAME;
-    private javax.swing.JButton ONDATA;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

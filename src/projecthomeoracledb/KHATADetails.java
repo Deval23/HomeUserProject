@@ -35,7 +35,7 @@ public class KHATADetails extends javax.swing.JFrame {
      */
     public KHATADetails() {
         initComponents();
-        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_131\\chromedriver-win64\\chromedriver.exe");  
+        System.setProperty("webdriver.chrome.driver", "C:\\CHROMEDRIVERS\\chromedriver-win64_140\\chromedriver.exe");  
         FillCombokhata();
         FillCombokhatasurveyno();
         FillMAPS();
@@ -71,6 +71,11 @@ public class KHATADetails extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        CBOLDSURVEY = new javax.swing.JComboBox<>();
+        GETOLD = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,6 +135,12 @@ public class KHATADetails extends javax.swing.JFrame {
             }
         });
 
+        CBsurveyno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBsurveynoActionPerformed(evt);
+            }
+        });
+
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("ALL KHATA SURVEY");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +178,41 @@ public class KHATADetails extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setText("SORT");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        CBOLDSURVEY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBOLDSURVEYActionPerformed(evt);
+            }
+        });
+
+        GETOLD.setText("GET OLD 7/12");
+        GETOLD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GETOLDActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("E-CHAVDI");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButton10.setText("REFRESH");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,17 +237,22 @@ public class KHATADetails extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(CBKhata, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(41, 41, 41)
-                                    .addComponent(CBsurveyno, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                    .addComponent(CBsurveyno, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(CBOLDSURVEY, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(GETOLD, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -210,11 +261,16 @@ public class KHATADetails extends javax.swing.JFrame {
                             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(120, 120, 120))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(126, 126, 126))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))))
+                        .addComponent(jButton10)
+                        .addGap(23, 23, 23))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(VillageMAP, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,9 +279,9 @@ public class KHATADetails extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -243,36 +299,49 @@ public class KHATADetails extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(seleddrno, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addComponent(jButton10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ANYRORWEBSITE, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(VillageMAP, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CBKhata, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CBsurveyno, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(VillageMAP, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)))
+                        .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(123, 123, 123))
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CBKhata, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CBsurveyno, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(CBOLDSURVEY, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90))))
+                        .addGap(90, 90, 90))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(GETOLD, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(97, 97, 97))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -281,8 +350,8 @@ public class KHATADetails extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,12 +378,12 @@ public class KHATADetails extends javax.swing.JFrame {
        try { 
     	 wb.navigate().to(Slink);
          wb.manage().window().maximize();
-    	 Thread.sleep(2000);
+    	 Thread.sleep(250);
          WebElement district=wb.findElement(By.id("ContentPlaceHolder1_drpLandRecord"));        
          Select districtdropdown=new Select(district);
          districtdropdown.selectByIndex(6);
          wb.navigate().refresh();
-         Thread.sleep(500);
+         Thread.sleep(250);
         
         }
        catch(Exception e){
@@ -322,12 +391,12 @@ public class KHATADetails extends javax.swing.JFrame {
        }    
           
        try { 
-    	Thread.sleep(2000);
+    	Thread.sleep(250);
          WebElement district=wb.findElement(By.id("ContentPlaceHolder1_ddlDistrict"));        
          Select districtdropdown=new Select(district);
          districtdropdown.selectByIndex(25);
          wb.navigate().refresh();
-         Thread.sleep(500);
+         Thread.sleep(250);
         }
        catch(Exception e){
            System.out.println(e.getMessage());
@@ -337,7 +406,7 @@ public class KHATADetails extends javax.swing.JFrame {
               Select talukadropdown=new Select(taluka);
               talukadropdown.selectByIndex(5);
               wb.navigate().refresh();
-              Thread.sleep(500);
+              Thread.sleep(250);
          }catch(Exception e){
               System.out.println(e.getMessage());
          }
@@ -347,9 +416,9 @@ public class KHATADetails extends javax.swing.JFrame {
             Select villagedropdown=new Select(Village);
             villagedropdown.selectByIndex(seleniumddno);
             wb.navigate().refresh();
-            Thread.sleep(500);
+            Thread.sleep(250);
             wb.findElement(By.id("ContentPlaceHolder1_txtNo")).sendKeys(ar[0]);
-            Thread.sleep(500);
+            Thread.sleep(250);
              jse.executeScript("window.scrollBy(0,250)", "");
            }catch(Exception e){
               System.out.println(e.getMessage());
@@ -428,7 +497,7 @@ public class KHATADetails extends javax.swing.JFrame {
        try { 
     	 wb.navigate().to(Slink);
          wb.manage().window().maximize();
-    	 Thread.sleep(2000);
+    	 Thread.sleep(500);
          WebElement district=wb.findElement(By.id("ContentPlaceHolder1_drpLandRecord"));        
          Select districtdropdown=new Select(district);
          districtdropdown.selectByIndex(5);
@@ -440,7 +509,7 @@ public class KHATADetails extends javax.swing.JFrame {
        }    
           
        try { 
-    	Thread.sleep(2000);
+    	Thread.sleep(500);
          WebElement district=wb.findElement(By.id("ContentPlaceHolder1_ddlDistrict"));        
          Select districtdropdown=new Select(district);
          districtdropdown.selectByIndex(25);
@@ -490,7 +559,7 @@ public class KHATADetails extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        ALLKHATASURVEY aks=new ALLKHATASURVEY();
+        ALLKhataSurevyCon aks=new ALLKhataSurevyCon();
         aks.show();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -542,6 +611,142 @@ public class KHATADetails extends javax.swing.JFrame {
         KIORA.show();
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+       String Filetosort="C:\\DLRMAPS";
+       File fts=new File(Filetosort);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void GETOLDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GETOLDActionPerformed
+        WebDriver wb=new ChromeDriver();
+        
+          DBFunctionInterface dbij=new SearchData();
+          String Slink=dbij.searchlink("ANYROR");
+           String khata=CBsurveyno.getSelectedItem().toString();
+          String ar[];
+          ar=khata.split("-");
+          int seleniumddno=dbij.searchkhatanoSELE(Integer.parseInt(ar[0]));
+          try { 
+    	 wb.navigate().to(Slink);
+         wb.manage().window().maximize();
+    	 Thread.sleep(250);
+         WebElement district=wb.findElement(By.id("ContentPlaceHolder1_drpLandRecord"));        
+         Select districtdropdown=new Select(district);
+         districtdropdown.selectByIndex(3);
+//         wb.navigate().refresh();
+         Thread.sleep(250);
+        }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       } 
+      try { 
+    	 
+    
+         WebElement district=wb.findElement(By.id("ContentPlaceHolder1_ddlDistrict"));        
+         Select districtdropdown=new Select(district);
+         districtdropdown.selectByIndex(25);
+//         wb.navigate().refresh();
+         Thread.sleep(500);
+        }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }  
+         try{
+              WebElement taluka=wb.findElement(By.id("ContentPlaceHolder1_ddlTaluka"));
+              Select talukadropdown=new Select(taluka);
+              talukadropdown.selectByIndex(5);
+              wb.navigate().refresh();
+              Thread.sleep(500);
+         }catch(Exception e){
+              System.out.println(e.getMessage());
+         }
+         
+         try{
+            WebElement Village=wb.findElement(By.id("ContentPlaceHolder1_ddlVillage"));
+            Select villagedropdown=new Select(Village);
+            villagedropdown.selectByIndex(seleniumddno);
+//            wb.navigate().refresh();
+            Thread.sleep(500);
+         }catch(Exception e){
+              System.out.println(e.getMessage());
+         }      
+    }//GEN-LAST:event_GETOLDActionPerformed
+
+    private void CBOLDSURVEYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBOLDSURVEYActionPerformed
+         
+    }//GEN-LAST:event_CBOLDSURVEYActionPerformed
+
+    private void CBsurveynoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBsurveynoActionPerformed
+       String NewSurvey=CBsurveyno.getSelectedItem().toString();
+       String arr[]=NewSurvey.split("-");
+       FillCombokhatasurveyold(Integer.parseInt(arr[2]),arr[1].toString());
+    }//GEN-LAST:event_CBsurveynoActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+       WebDriver wb=new ChromeDriver();
+          JavascriptExecutor jse = (JavascriptExecutor) wb;          
+          DBFunctionInterface dbij=new SearchData();
+          String Slink=dbij.searchlink("ANYROR");
+          String khata=CBKhata.getSelectedItem().toString();
+          String ar[];
+          ar=khata.split("-");
+          int seleniumddno=dbij.searchkhatanoSELE(Integer.parseInt(ar[0]));
+          
+       try { 
+    	 wb.navigate().to(Slink);
+         wb.manage().window().maximize();
+    	 Thread.sleep(250);
+         WebElement district=wb.findElement(By.id("ContentPlaceHolder1_drpLandRecord"));        
+         Select districtdropdown=new Select(district);
+         districtdropdown.selectByIndex(1);
+         wb.navigate().refresh();
+         Thread.sleep(250);
+        
+        }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }    
+          
+       try { 
+    	Thread.sleep(250);
+         WebElement district=wb.findElement(By.id("ContentPlaceHolder1_ddlDistrict"));        
+         Select districtdropdown=new Select(district);
+         districtdropdown.selectByIndex(25);
+         wb.navigate().refresh();
+         Thread.sleep(250);
+        }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }  
+         try{
+              WebElement taluka=wb.findElement(By.id("ContentPlaceHolder1_ddlTaluka"));
+              Select talukadropdown=new Select(taluka);
+              talukadropdown.selectByIndex(5);
+              wb.navigate().refresh();
+              Thread.sleep(250);
+         }catch(Exception e){
+              System.out.println(e.getMessage());
+         }
+         
+         try{
+            WebElement Village=wb.findElement(By.id("ContentPlaceHolder1_ddlVillage"));
+            Select villagedropdown=new Select(Village);
+            villagedropdown.selectByIndex(seleniumddno);
+            wb.navigate().refresh();
+            Thread.sleep(250);
+            wb.findElement(By.id("ContentPlaceHolder1_txtNo")).sendKeys(ar[0]);
+            Thread.sleep(250);
+             jse.executeScript("window.scrollBy(0,250)", "");
+           }catch(Exception e){
+              System.out.println(e.getMessage());
+         }  
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+       dispose();
+       KHATADetails kh=new KHATADetails();
+       kh.show();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
     private void FillCombokhata(){
     String Villagenam=null; 
     int khatanu;
@@ -572,14 +777,40 @@ public class KHATADetails extends javax.swing.JFrame {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
             Statement st=cn.createStatement();
-            String qr="Select * from khatasurveycon";
+            String qr="Select * from khatasurveyconB";
             ResultSet rs=st.executeQuery(qr);
             CBsurveyno.removeAllItems();
             while(rs.next()){
-            khatanu=rs.getInt("khatano");
-            surveyno=rs.getInt("surveyno");
+            khatanu=rs.getInt("khatanum");
+            surveyno=rs.getInt("surveynum");
             Villagenam=rs.getString("village");
             CBsurveyno.addItem(khatanu+"-"+Villagenam+"-"+surveyno);
+            }
+          cn.close();
+         }   
+        catch(Exception e){
+            System.out.println(e.getMessage());
+          }
+}
+     
+     private void FillCombokhatasurveyold(int newsurveyno,String villagename){
+    String Villagenam=null;
+    String oldsurveyno;
+    int khatanu,surveyno;
+   
+    try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE","system","12345");
+            Statement st=cn.createStatement();
+            String qr="Select * from khatasurveyconB where surveynum='"+newsurveyno+"' AND Village='"+villagename+"'";
+            ResultSet rs=st.executeQuery(qr);
+            CBOLDSURVEY.removeAllItems();
+            while(rs.next()){
+            khatanu=rs.getInt("khatanum");
+            surveyno=rs.getInt("surveynum");
+            Villagenam=rs.getString("village");
+            oldsurveyno=rs.getString("OLDSURVEYNO");
+            CBOLDSURVEY.addItem(surveyno+"    ---->     "+oldsurveyno);
             }
           cn.close();
          }   
@@ -636,15 +867,20 @@ public class KHATADetails extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ANYRORWEBSITE;
     private javax.swing.JComboBox<String> CBKhata;
+    private javax.swing.JComboBox<String> CBOLDSURVEY;
     private javax.swing.JComboBox<String> CBsurveyno;
+    private javax.swing.JButton GETOLD;
     private javax.swing.JComboBox<String> VillageMAP;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
